@@ -18,7 +18,7 @@ user_tally = 0
 computer_tally = 0
 
 instructions = <<-HII
-Welcome to Rock Paper Scissors Spock Lizard
+Welcome to the Rock Paper Scissors Spock Lizard game
 
 To make it easy, type:
 r for Rock
@@ -36,7 +36,7 @@ loop do # main loop
   choice = ''
   loop do
     prompt("Choose one: #{VALID_CHOICES.join(', ')}")
-    choice = Kernel.gets().chomp()
+    choice = Kernel.gets().chomp().downcase
 
     if VALID_CHOICES.include?(choice)
       break
@@ -62,16 +62,19 @@ loop do # main loop
   if user_tally == 3
     puts "YOU WON THREE ROUNDS FIRST!
     The computer's win count was: #{computer_tally}"
+    user_tally = 0 
+    computer_tally = 0
   elsif computer_tally == 3
     puts "THE COMPUTER WON THREE ROUNDS FIRST.
     Your win count was: #{user_tally}"
-    user_tally = 0 && computer_tally = 0
+    user_tally = 0 
+    computer_tally = 0
   else next
   end
 
   prompt("Do you want to play again? Type 'yes' to play again.")
   answer = Kernel.gets().chomp()
-  if answer.downcase != 'yes'
+  if answer.downcase != 'yes' && answer.downcase != 'y'
     break
   end
 end # main loop
