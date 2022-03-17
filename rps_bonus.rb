@@ -62,12 +62,12 @@ loop do # main loop
   if user_tally == 3
     puts "YOU WON THREE ROUNDS FIRST!
     The computer's win count was: #{computer_tally}"
-    user_tally = 0 
+    user_tally = 0
     computer_tally = 0
   elsif computer_tally == 3
     puts "THE COMPUTER WON THREE ROUNDS FIRST.
     Your win count was: #{user_tally}"
-    user_tally = 0 
+    user_tally = 0
     computer_tally = 0
   else next
   end
